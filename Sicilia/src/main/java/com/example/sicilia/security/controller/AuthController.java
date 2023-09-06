@@ -14,7 +14,6 @@ import com.example.sicilia.security.payload.RegisterDto;
 import com.example.sicilia.security.service.AuthService;
 
 
-
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -46,12 +45,13 @@ public class AuthController {
     }
     
     // JSON inviato dal Client
-    /*{
+    /*
+    {
         "name": "Giuseppe",
-        "lastname": "Verdi",
         "username": "giuseppevardi",
         "email": "g.verdi@example.com",
-        "password": "qwerty",
-        "roles": ["MODERATOR", "ADMIN"]
-    }*/
+        "password": "qwerty"
+    }
+    
+    */
 }
