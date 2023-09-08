@@ -1,5 +1,6 @@
 package com.example.sicilia.security.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -22,13 +23,14 @@ public class SpiaggiaService {
 	@Autowired @Qualifier("spiaggieBean") private ObjectProvider<Spiaggia> provider;
 	
 	
-	public Spiaggia addSpiaggia( String nome ,Double lunghezzaMetri, Double prezzoOmbrellne)
+	public Spiaggia addSpiaggia( String nome ,Double lunghezzaMetri, String urlFoto , LocalDate data ,Double prezzoOmbrellne)
 	{
 		Spiaggia  s = provider.getObject().builder()
 				                          .nome(nome)
 				                          .lunghezzaMetri(lunghezzaMetri)
 				                          .prezzoOmbrellne(prezzoOmbrellne)
-				                          //.urlFotoSpiaggia()
+				                          .urlFotoSpiaggia(urlFoto)
+				                          .prenotaSp(data)
 				                          .build();
 		          repo.save(s);
 		          System.out.println();
@@ -65,18 +67,31 @@ public class SpiaggiaService {
          return s;
 	}
 	
+	
+	public List<Spiaggia> findByPrenotaSp(LocalDate data){
+		List<Spiaggia> s = repo.findByPrenotaSp(data);
+		System.out.println();
+		log.info("Spiaggie nella data" + data + " : ");
+		s.forEach(c-> log.info(c.toString()));
+		return s;
+		
+	}
+	
 	public void loadSpiaggia() {
 		 
-		addSpiaggia("Rocca", 1251.35, 23.99);
-		addSpiaggia("Mollarella", 2251.35, 35.99);
-		addSpiaggia("Mondello", 4251.35, 45.99);
-		addSpiaggia("Isola delle Femmine", 2867.35, 31.99);
-		addSpiaggia("Capaci", 3251.35, 20.49);
-		addSpiaggia("Macari", 2050.35, 32.49);
-		addSpiaggia("Tonnarella", 2231.35, 25.99);
-		addSpiaggia("Scala dei Turchi", 851.35, 59.99);
-		addSpiaggia("San Leone", 6251.35, 38.49);
-		addSpiaggia("Play", 4251.35, 28.49);
+		addSpiaggia("Rocca", 1251.35,
+				"C:\\U-Agrigento.jpg", 
+				LocalDate.of(2024, 8, 18),23.99);
+		addSpiaggia("Mollarella", 2251.35,"C:\\U-Agrigento.jpg",
+				LocalDate.of(2024, 7, 18), 35.99);
+		addSpiaggia("Mondello", 4251.35,"C:\\U-Agrigento.jpg",
+				LocalDate.of(2024, 5, 18), 45.99);
+		addSpiaggia("Isola delle Femmine", 2867.35, "C:\\U-Agrigento.jpg" ,
+				LocalDate.of(2024, 7, 16),31.99);
+		addSpiaggia("Capaci", 3251.35, "C:\\U-Agrigento.jpg" ,
+				LocalDate.of(2024, 6, 18), 20.49);
+		addSpiaggia("Macari", 2050.35, "C:\\U-Agrigento.jpg" ,
+				LocalDate.of(2024, 7, 18), 32.49);
 	}
 	
 }

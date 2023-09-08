@@ -30,18 +30,19 @@ public class City {
 	private Long idCity;
 	
 	@Column(nullable=false , unique=true)
-	private String city;
+	private String nome;
 	private String provincia;
 	private String linguaPrincipale;
 	private String urlFotoCity;
 	private LocalDate prenotaAlb;
 	private String monumentoFamoso;
-	
-	@ManyToOne
-	private Spiaggia spiaggia;
-	
-	@ManyToOne
-	private Ristorante ristorante;
-	
 	private Double prezzoHotel;
+	
+//	@ManyToOne
+//	private Spiaggia spiaggia;
+//	
+//	@ManyToOne
+//	private Ristorante ristorante;
+	
+
 }

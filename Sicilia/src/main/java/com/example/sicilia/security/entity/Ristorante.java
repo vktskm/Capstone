@@ -26,10 +26,9 @@ public class Ristorante {
 
     private String nome;
     private String indirizzo;
-    private String città;
     private String tipoCucina;
-    private Integer numeroPosti;
-    private boolean serveAlcolici;
+    private String urlFotoCucina;
     private LocalDate prenotaRist;
     private Double prezzoPersona;
+
 }

@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.sicilia.security.entity.ERole;
+import com.example.sicilia.security.entity.Ristorante;
 import com.example.sicilia.security.entity.Role;
 import com.example.sicilia.security.entity.User;
 import com.example.sicilia.security.exception.MyAPIException;
@@ -104,5 +105,7 @@ public class AuthServiceImpl implements AuthService {
     	else if(role.equals("MODERATOR")) return ERole.ROLE_MODERATOR;
     	else return ERole.ROLE_USER;
     }
+    
+
     
 }
