@@ -7,6 +7,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -34,6 +35,8 @@ public class Prenotazione {
 	private List<Spiaggia> spiaggia;
 	@OneToMany
 	private List<Ristorante> ristorante;
+	
+	private boolean pagata ;
 
 	private Long utente;
 	

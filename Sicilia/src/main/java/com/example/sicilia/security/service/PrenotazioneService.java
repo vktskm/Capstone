@@ -13,7 +13,6 @@ import com.example.sicilia.security.entity.Prenotazione;
 import com.example.sicilia.security.entity.Ristorante;
 import com.example.sicilia.security.entity.Spiaggia;
 import com.example.sicilia.security.entity.User;
-import com.example.sicilia.security.repository.CityRepository;
 import com.example.sicilia.security.repository.PrenotazioneRepository;
 
 import ch.qos.logback.classic.Logger;
@@ -37,6 +36,7 @@ public class PrenotazioneService {
 		
 		Prenotazione p = provider.getObject().builder()
                 .utente(idUser)
+                .pagata(false)
 				.build();
          
 		repo.save(p);
@@ -45,7 +45,7 @@ public class PrenotazioneService {
 		return p;
 	}
 	
-    @Transactional
+	@Transactional
 	public Prenotazione prenotaComune(Long idPrenotazione , Long idCity) {
 		
 		Prenotazione p = repo.findById( idPrenotazione).get();
@@ -68,6 +68,36 @@ public class PrenotazioneService {
 		System.out.println(p);
 		return p;
 	};
+	
+	
+	/*
+	 * @Transactional
+    public Prenotazione prenotaRistorante(Long idPrenotazione, Long idRist) {
+    // Paso 1: Carica un'istanza di Prenotazione dal repository usando l'ID fornito
+    Prenotazione p = repo.findById(idPrenotazione).get();
+
+    // Paso 2: Ottieni la lista dei ristoranti associati all'istanza di Prenotazione
+    List<Ristorante> c = p.getRistorante();
+
+    // Paso 3: Carica un'istanza di Ristorante dal repository usando l'ID fornito
+    Ristorante ristorante = rsSvc.findById(idRist);
+
+    // Paso 4: Aggiungi il ristorante alla lista dei ristoranti
+    c.add(ristorante);
+
+    // Paso 5: Imposta la lista aggiornata dei ristoranti nell'istanza di Prenotazione
+    p.setRistorante(c);
+
+    // Paso 6: Salva l'istanza di Prenotazione aggiornata nel repository
+    repo.save(p);
+
+    // Paso 7: Stampa l'istanza di Prenotazione per scopi di debug
+    System.out.println(p);
+
+    // Paso 8: Restituisce l'istanza di Prenotazione aggiornata
+    return p;
+}
+* */
 	
 	@Transactional
 	public Prenotazione prenotaSpiaggia(Long idPrenotazione , Long idSp) {
@@ -106,6 +136,8 @@ public class PrenotazioneService {
         return u;
     	
     }
+    
+    
 
 
 	  
