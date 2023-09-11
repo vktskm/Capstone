@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.sicilia.security.entity.City;
+
 import com.example.sicilia.security.entity.Prenotazione;
-import com.example.sicilia.security.entity.Spiaggia;
 import com.example.sicilia.security.entity.User;
 import com.example.sicilia.security.service.PrenotazioneService;
 
-import jakarta.transaction.Transactional;
+
 
 
 @RestController

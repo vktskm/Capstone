@@ -1,0 +1,30 @@
+.row{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+    h1{
+      font-size: 6rem;
+      font-weight: 900;
+      color: #7a1622;
+      margin-bottom: 0;
+    }
+    .slogan{
+      font-style: italic;
+      font-size: 3rem;
+    }
+
+    img{
+      width: 80%;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+    button{
+      &:hover{
+        font-weight: bold;
+        transform: scale(1.01);
+      }
+    }
+  }
