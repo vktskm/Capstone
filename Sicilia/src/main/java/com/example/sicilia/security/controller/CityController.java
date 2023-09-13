@@ -20,7 +20,7 @@ import com.example.sicilia.security.service.CityService;
 
 @RestController
 @RequestMapping("/api/city")
-@CrossOrigin(origins = "*" , maxAge=3600)
+@CrossOrigin(origins = "*")
 public class CityController {
 	
     @Autowired CityService svc;
@@ -28,7 +28,7 @@ public class CityController {
 	@GetMapping("/set")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<List<City>> findAll(){
-		System.out.println("ciao");
+	
 		List<City> c = svc.findAll();
 		ResponseEntity<List<City>> resp = new ResponseEntity<List<City>>(c , HttpStatus.OK);
 		return resp;

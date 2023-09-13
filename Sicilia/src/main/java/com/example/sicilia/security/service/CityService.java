@@ -92,13 +92,17 @@ public class CityService {
     	return c;
     }
     
+    
 	
 	public void loadCity() {
 		 
-		addCity("Licata", "Agrigento" , "licatese", "URLFOTO", LocalDate.of(2024, 7, 18), 
+		addCity("Licata", "Agrigento" , "licatese", 
+				"/Sicilia/src/main/resources/upload/94G4qL9Y-Agrigento.jpg", 
+				LocalDate.of(2024, 7, 18), 
 				"Chiesa Sant'Angelo",123.99);
 		
-		addCity("Palermo", "Palermo" , "licatese", "URLFOTO", LocalDate.of(2025, 7, 18), 
+		addCity("Palermo", "Palermo" , "licatese", "/Sicilia/src/main/resources/upload/94G4qL9Y-Agrigento.jpg", 
+				LocalDate.of(2025, 7, 18), 
 				"Duomo",123.99 );
 		
 	}

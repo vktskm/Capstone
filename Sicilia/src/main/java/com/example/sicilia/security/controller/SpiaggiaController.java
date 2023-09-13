@@ -20,7 +20,7 @@ import com.example.sicilia.security.service.SpiaggiaService;
 
 @RestController
 @RequestMapping("/api/spiaggia")
-@CrossOrigin(origins = "*" , maxAge=3600)
+@CrossOrigin(origins = "*")
 public class SpiaggiaController {
 	
 	@Autowired SpiaggiaService svc;
@@ -28,7 +28,7 @@ public class SpiaggiaController {
 	@GetMapping("/set")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<List<Spiaggia>> findAll(){
-		System.out.println("ciao");
+		
 		List<Spiaggia> l = svc.findAll();
 		ResponseEntity<List<Spiaggia>> resp = new ResponseEntity<List<Spiaggia>>(l , HttpStatus.OK);
 		return resp;

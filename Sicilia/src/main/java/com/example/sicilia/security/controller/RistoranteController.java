@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.sicilia.security.entity.City;
 import com.example.sicilia.security.entity.Ristorante;
 import com.example.sicilia.security.entity.Spiaggia;
 import com.example.sicilia.security.service.RistoranteService;
@@ -22,7 +23,7 @@ import com.example.sicilia.security.service.RistoranteService;
 
 @RestController
 @RequestMapping("/api/ristorante")
-@CrossOrigin(origins = "*" , maxAge=3600)
+@CrossOrigin(origins = "*")
 public class RistoranteController {
 	
 @Autowired RistoranteService svc;
@@ -30,11 +31,14 @@ public class RistoranteController {
 	@GetMapping("/set")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<List<Ristorante>> findAll(){
-		System.out.println("ciao");
+		
 		List<Ristorante> l = svc.findAll();
 		ResponseEntity<List<Ristorante>> resp = new ResponseEntity<List<Ristorante>>(l , HttpStatus.OK);
 		return resp;
 	}
+
+	
+	
 	
 	@GetMapping("/{id}")
 	@PreAuthorize("isAuthenticated()")

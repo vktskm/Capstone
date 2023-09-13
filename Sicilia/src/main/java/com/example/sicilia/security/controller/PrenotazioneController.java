@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ import com.example.sicilia.security.service.PrenotazioneService;
 
 @RestController
 @RequestMapping("/api/prenotazione")
-@CrossOrigin(origins = "*" , maxAge=3600)
+@CrossOrigin(origins = "*")
 public class PrenotazioneController {
 	
 	@Autowired PrenotazioneService svc;
@@ -48,21 +49,11 @@ public class PrenotazioneController {
 		return resp;
 	}
 	
-	@GetMapping("/user/{id}")
-	@PreAuthorize("isAuthenticated()")
-	public ResponseEntity<?> findByIdUser(@PathVariable Long id){
-		System.out.println("id funziona");
-		User u =  (User) svc.findByIdUser(id);
-		ResponseEntity<User> resp = new ResponseEntity<User>(u , HttpStatus.OK);
-		return resp;
-	}
-	
 	@PostMapping("/post/{id}")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> addPrenotazione(@PathVariable Long id){
 		
-		Prenotazione p = svc.addPrenota( id  );
-		
+		Prenotazione p = svc.addPrenota(id);
 		return new ResponseEntity<Prenotazione>(p, HttpStatus.CREATED);
 				
 	}
@@ -70,7 +61,6 @@ public class PrenotazioneController {
 	@PutMapping("/comune/{idPrenota}/{idCity}")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> prenotaComune(@PathVariable Long idPrenota , @PathVariable Long idCity){
-		
 		
 		Prenotazione p = svc.prenotaComune(idPrenota, idCity);
 		
@@ -99,6 +89,21 @@ public class PrenotazioneController {
 		return new ResponseEntity<Prenotazione>(p, HttpStatus.CREATED);
 				
 	}
+	
+	@DeleteMapping("delete/{id}")
+	@PreAuthorize("isAuthenticated()")
+    public ResponseEntity<String> deletePrenota (@PathVariable Long id){
+        
+		boolean deleted = svc.deletePrenotazione(id);
+
+        if (deleted) {
+            return new ResponseEntity<>("Prenotazione eliminata con successo", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Prenotazione non trovata", HttpStatus.NOT_FOUND);
+        }
+		
+      
+    }
 	
 	
 }

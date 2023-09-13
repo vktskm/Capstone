@@ -1,3 +1,58 @@
 <p>prenotazione works!</p>
 
-<button (click)="esci()" >SLOGGAMI </button>
+<div class="card-body">
+  <button (click)="prenota()" [routerLink]="['/comuni']">Crea Prenotazione </button>
+
+  <h5 class="card-title mb-0">crea prenotazione</h5>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-12 p-3" *ngFor="let prenotazione of prenotazioni">
+      <!-- (click)="getIdP(prenotazione.idPrenotazione)" -->
+      <div class="card" *ngIf="getIdUser()==prenotazione.utente" >
+      <h2>Prenotazioni effettuate dal cliente</h2>
+      <button *ngIf="prenotazione.pagata==false" (click)="setP(prenotazione)"> Termina Prenotazione</button>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-0">{{prenotazione.idPrenotazione}}</h5>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 p-3">
+      <div class="card border-danger">
+        <div class="card-body">
+          <button (click)="esci()" >SLOGGAMI </button>
+          <h5 class="card-title mb-0">LOG OUT</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-3">
+      <div class="card border-danger">
+        <div class="card-body">
+          <button>Concludi Prenotazione  </button>
+          <h5 class="card-title mb-0">LOG OUT</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-3">
+      <div class="card border-danger">
+        <div class="card-body">
+          <button>Elimina Prenotazione  </button>
+          <h5 class="card-title mb-0">LOG OUT</h5>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

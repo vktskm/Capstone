@@ -1,0 +1,39 @@
+
+<p>comuni works!</p>
+
+<div class="container-fluid">
+
+    <div class="col-12 text-center"><h3>GESTIONE COMUNI</h3></div>
+    <div class="col-4 p-3" *ngFor="let ristorante of ristoranti">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title">{{ristorante.idRistorante }} - {{ristorante.nome}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            {{ ristorante.indirizzo }}
+          </h6>
+          <p></p>
+          <div>
+            <div>
+              <button (click)="put(ristorante.idRistorante)" >Aggiungi ristoranti alla Prenotazione </button>
+          </div>
+          <p></p>
+          <div>
+            <button [routerLink]="['/ristoranti/' + ristorante.idRistorante]">Vai aidettagli del comune</button>
+          </div>
+          <p></p>
+          <div>
+            <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
+          </div>
+
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

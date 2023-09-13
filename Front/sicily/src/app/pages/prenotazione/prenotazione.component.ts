@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Iprenota } from 'src/app/interfaces/Iprenota';
 import { AuthService } from 'src/app/service/auth.service';
+import { PrenotazioneService } from 'src/app/service/prenotazione.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-prenotazione',
@@ -8,15 +12,53 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class PrenotazioneComponent implements OnInit{
 
+    constructor(private autSvc: AuthService , private prSvc: PrenotazioneService , private userSvc: UserService, private router:Router){}
 
-    constructor(private svc: AuthService){}
+    prenotazioni: Iprenota[] = [];
+
+    error: undefined | string;
 
     ngOnInit(): void {
-
+      this.getAll();
     }
 
     esci (): void {
-      this.svc.logout();
+      this.autSvc.logout();
     }
+
+    getAll() : void {
+      this.prSvc.getAllP().subscribe((data) => {
+        this.prenotazioni = data;
+        console.log(this.prenotazioni);
+      });
+    }
+
+    getIdP(id:any) {
+        this.prSvc.getByIdP(id).subscribe((data) => {
+         console.log(data); })
+    }
+
+    prenota(): void {
+
+      this.prSvc.addPrenota().subscribe(resp => {
+        // console.log(resp);
+        this.prSvc.setPrenota( resp );
+        this.error = undefined;
+      }, err => {
+        // console.log(err.error.message);
+        this.error = err.error.message;
+      });
+
+    }
+
+    getIdUser():number{
+
+      return this.userSvc.getId();
+    }
+
+    setP( value:Iprenota ){
+      this.prSvc.setPrenota( value );
+    }
+
 
 }

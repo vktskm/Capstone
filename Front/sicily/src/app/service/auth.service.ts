@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  loggedIn: boolean = true;
+  loggedIn: boolean = false;
   // headers = new HttpHeaders();
 
   jwtHelper: JwtHelperService = new JwtHelperService();
@@ -50,18 +50,6 @@ export class AuthService {
   }
 
 
-
-  // getUsers() {
-    // Soluzione senza Interceptor
-    /* let json = localStorage.getItem('userLogin');
-    if(json) {
-      let userLogin = JSON.parse(json);
-      this.headers = this.headers.set('Authorization', 'Bearer ' + userLogin.accessToken);
-    }
-    return this.http.get<ISignupData[]>('http://localhost:8080/api/test/angular', { headers: this.headers }); */
-  //   return this.http.get<ISignupData[]>('http://localhost:8080/api/test/angular');
-  // }
-
   signup(user: Isignup) {
     console.log(user);
     return this.http.post('http://localhost:8080/api/auth/register', user);
@@ -72,17 +60,5 @@ export class AuthService {
     return this.http.post('http://localhost:8080/api/auth/login', user)
     .pipe(tap((data: any) => this.authSubject.next(data)));
   }
-
-  // isAuth() {
-  //   // return false;
-  //   // return this.loggedIn;
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(this.loggedIn)
-  //     }, 1000)
-  //   })
-  // }
-
-
 
 }

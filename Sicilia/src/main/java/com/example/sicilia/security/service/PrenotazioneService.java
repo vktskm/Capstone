@@ -2,6 +2,7 @@ package com.example.sicilia.security.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import com.example.sicilia.security.entity.Spiaggia;
 import com.example.sicilia.security.entity.User;
 import com.example.sicilia.security.repository.PrenotazioneRepository;
 
-import ch.qos.logback.classic.Logger;
+
 import jakarta.transaction.Transactional;
 
 @Service
@@ -32,10 +33,10 @@ public class PrenotazioneService {
 	@Autowired @Qualifier("prenotazioneBean") private ObjectProvider<Prenotazione> provider;
 	
 	
-	public Prenotazione addPrenota( Long idUser){
+	public Prenotazione addPrenota(Long idUser){
 		
 		Prenotazione p = provider.getObject().builder()
-                .utente(idUser)
+				.utente(idUser)
                 .pagata(false)
 				.build();
          
@@ -69,35 +70,6 @@ public class PrenotazioneService {
 		return p;
 	};
 	
-	
-	/*
-	 * @Transactional
-    public Prenotazione prenotaRistorante(Long idPrenotazione, Long idRist) {
-    // Paso 1: Carica un'istanza di Prenotazione dal repository usando l'ID fornito
-    Prenotazione p = repo.findById(idPrenotazione).get();
-
-    // Paso 2: Ottieni la lista dei ristoranti associati all'istanza di Prenotazione
-    List<Ristorante> c = p.getRistorante();
-
-    // Paso 3: Carica un'istanza di Ristorante dal repository usando l'ID fornito
-    Ristorante ristorante = rsSvc.findById(idRist);
-
-    // Paso 4: Aggiungi il ristorante alla lista dei ristoranti
-    c.add(ristorante);
-
-    // Paso 5: Imposta la lista aggiornata dei ristoranti nell'istanza di Prenotazione
-    p.setRistorante(c);
-
-    // Paso 6: Salva l'istanza di Prenotazione aggiornata nel repository
-    repo.save(p);
-
-    // Paso 7: Stampa l'istanza di Prenotazione per scopi di debug
-    System.out.println(p);
-
-    // Paso 8: Restituisce l'istanza di Prenotazione aggiornata
-    return p;
-}
-* */
 	
 	@Transactional
 	public Prenotazione prenotaSpiaggia(Long idPrenotazione , Long idSp) {
@@ -136,6 +108,13 @@ public class PrenotazioneService {
         return u;
     	
     }
+    
+    //DELETE METHOD
+  	public boolean deletePrenotazione(Long id) {
+  		repo.deleteById(id);
+  		log.info("Utente" + id + "eliminato con successo");
+  		return true;
+  	}
     
     
 

@@ -1,32 +1,33 @@
-import { PrenotazioneService } from 'src/app/service/prenotazione.service';
 import { Component, OnInit } from '@angular/core';
-import { Icity } from 'src/app/interfaces/Icity';
 import { Iprenota } from 'src/app/interfaces/Iprenota';
-import { ComuniService } from 'src/app/service/comuni.service';
+import { Iristorante } from 'src/app/interfaces/Iristorante';
+import { PrenotazioneService } from 'src/app/service/prenotazione.service';
+import { RistoranteService } from 'src/app/service/ristorante.service';
 
 @Component({
-  selector: 'app-comuni',
-  templateUrl: './comuni.component.html',
-  styleUrls: ['./comuni.component.scss']
+  selector: 'app-ristorante',
+  templateUrl: './ristorante.component.html',
+  styleUrls: ['./ristorante.component.scss']
 })
-export class ComuniComponent implements OnInit {
-  comuni : Icity[]=[];
+export class RistoranteComponent implements OnInit{
+
+  ristoranti : Iristorante[]=[];
   prenotazioni: Iprenota[] = [];
 
   error: undefined | string;
 
-  constructor(private comuniSvc: ComuniService , private prSvc: PrenotazioneService) { }
+  constructor(private rsSvc: RistoranteService , private prSvc: PrenotazioneService) { }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getAllR();
     this.getAllP();
 
   }
 
-  getAll() {
-    this.comuniSvc.getAll().subscribe((data) => {
-      this.comuni = data;
-      console.log(this.comuni);
+  getAllR() {
+    this.rsSvc.getAllR().subscribe((data) => {
+      this.ristoranti = data;
+      console.log(this.ristoranti);
     });
   }
 
@@ -37,15 +38,15 @@ export class ComuniComponent implements OnInit {
     });
   }
 
-  getIdC(id:any) {
-    this.comuniSvc.getByIdC(id).subscribe((data) => {
+  getIdR(id:any) {
+    this.rsSvc.getByIdR(id).subscribe((data) => {
      console.log(data); })
   }
 
 
-  put(idC:any ): void {
+  put(idS:any ): void {
 
-    this.comuniSvc.addPutC(this.prSvc.prenotazioneInCorso.idPrenotazione,idC).subscribe(resp => {
+    this.rsSvc.addPutR(this.prSvc.prenotazioneInCorso.idPrenotazione,idS).subscribe(resp => {
       console.log(resp);
       this.error = undefined;
     }, err => {
@@ -65,6 +66,8 @@ export class ComuniComponent implements OnInit {
       // console.log(err.error.message);
       this.error = err.error.message;
     });
-  }
+
+
+}
 
 }
