@@ -11,6 +11,7 @@ import { RistoranteComponent } from './pages/ristorante/ristorante.component';
 import { UserComponent } from './pages/user/user.component';
 import { ComuneComponent } from './pages/comuni/comune/comune.component';
 import { RistorantiComponent } from './pages/ristorante/ristoranti/ristoranti.component';
+import { SpiaggiaComponent } from './pages/spiaggie/spiaggia/spiaggia.component';
 
 const routes: Routes = [
 
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: "spiaggie",
     component: SpiaggieComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "spiaggia/:id",
+    component: SpiaggiaComponent,
     canActivate: [AuthGuard]
   },
   {

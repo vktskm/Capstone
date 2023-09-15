@@ -49,6 +49,17 @@ export class SpiaggieComponent {
     this.spSvc.addPutS(this.prSvc.prenotazioneInCorso.idPrenotazione,idS).subscribe(resp => {
       console.log(resp);
       this.error = undefined;
+
+      const indiceDaRimuovere = this.spiaggie.findIndex(elemento => elemento.idSpiaggia === idS);
+      console.log(indiceDaRimuovere);
+
+
+    if (indiceDaRimuovere !== -1) {
+      this.spiaggie.splice(indiceDaRimuovere, 1); // Rimuove l'elemento dall'array
+    } else {
+      console.error(`L'elemento con id ${idS} non è stato trovato nell'array.`);
+    }
+
     }, err => {
       console.log(err.error.message);
       this.error = err.error.message;

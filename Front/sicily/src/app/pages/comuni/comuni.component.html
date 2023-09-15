@@ -5,7 +5,9 @@
     <div class="col-12 text-center"><h3>GESTIONE COMUNI</h3></div>
     <div class="col-4 p-3" *ngFor="let comune of comuni">
       <div class="card" >
+
         <div class="card-body">
+          <img src="{{comune.urlFotoCity}}" alt="Concordia.">
           <h5 class="card-title">{{ comune.idCity }} - {{ comune.nome }}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">
             {{ comune.provincia }}
@@ -20,17 +22,19 @@
         <div>
           <button [routerLink]="['/comune/' + comune.idCity]">Dettagli del comune</button>
         </div>
-        <p></p>
-        <div>
-          <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
-        </div>
-        <p></p>
-        <div>
-          <button [routerLink]="['/spiaggie']">Prenota Una Spiaggia</button>
-        </div>
 
       </div>
 
     </div>
   </div>
 </div>
+
+
+
+<div>
+  <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
+</div>
+<div>
+  <button [routerLink]="['/spiaggie']">Prenota Una Spiaggia</button>
+</div>
+

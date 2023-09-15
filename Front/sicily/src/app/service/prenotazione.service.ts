@@ -28,6 +28,17 @@ setPrenota( value: Iprenota){
     this.prenotazioneInCorso = value;
 }
 
+prenotazionePagata(idP:any) {
+  this.headers = this.headers.set(
+    'Authorization',
+    'Bearer ' + this.userSvc.getToken()
+  );
+
+  return this.http.put<Iprenota>('http://localhost:8080/api/prenotazione/pagata/'+idP,{},
+  {headers: this.headers
+  } );
+}
+
 getAllP() {
   this.headers = this.headers.set(
     'Authorization',
@@ -45,6 +56,16 @@ getByIdP(id:any) {
     'Bearer ' + this.userSvc.getToken()
   );
   return this.http.get<Iprenota>('http://localhost:8080/api/prenotazione/'+ id, {
+    headers: this.headers
+  });
+}
+
+eliminaIdP(id:any){
+  this.headers = this.headers.set(
+    'Authorization',
+    'Bearer ' + this.userSvc.getToken()
+  );
+  return this.http.delete('http://localhost:8080/api/prenotazione/delete/'+id, {
     headers: this.headers
   });
 }

@@ -44,11 +44,23 @@ export class RistoranteComponent implements OnInit{
   }
 
 
-  put(idS:any ): void {
+  put(idR:any ): void {
 
-    this.rsSvc.addPutR(this.prSvc.prenotazioneInCorso.idPrenotazione,idS).subscribe(resp => {
+    this.rsSvc.addPutR(this.prSvc.prenotazioneInCorso.idPrenotazione,idR).subscribe(resp => {
       console.log(resp);
       this.error = undefined;
+
+      const indiceDaRimuovere = this.ristoranti.findIndex(elemento => elemento.idRistorante === idR);
+      console.log(indiceDaRimuovere);
+
+
+    if (indiceDaRimuovere !== -1) {
+      this.ristoranti.splice(indiceDaRimuovere, 1); // Rimuove l'elemento dall'array
+    } else {
+      console.error(`L'elemento con id ${idR} non è stato trovato nell'array.`);
+    }
+
+
     }, err => {
       console.log(err.error.message);
       this.error = err.error.message;

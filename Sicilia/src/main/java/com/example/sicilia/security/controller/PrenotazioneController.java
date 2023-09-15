@@ -58,6 +58,17 @@ public class PrenotazioneController {
 				
 	}
 	
+	
+	@PutMapping("/pagata/{idPrenota}")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> prenotaP(@PathVariable Long idPrenota){
+		
+		Prenotazione p = svc.prenotaPagata(idPrenota);
+		
+		return new ResponseEntity<Prenotazione>(p, HttpStatus.CREATED);
+				
+	}
+	
 	@PutMapping("/comune/{idPrenota}/{idCity}")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> prenotaComune(@PathVariable Long idPrenota , @PathVariable Long idCity){

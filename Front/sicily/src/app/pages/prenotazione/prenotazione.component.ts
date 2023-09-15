@@ -58,7 +58,32 @@ export class PrenotazioneComponent implements OnInit{
 
     setP( value:Iprenota ){
       this.prSvc.setPrenota( value );
+  }
+
+    prenotPag(id:any){
+      this.prSvc.prenotazionePagata(id).subscribe(resp => {
+         console.log(resp);
+         this.getAll();
+        this.error = undefined;
+      }, err => {
+         console.log(err.error.message);
+        this.error = err.error.message;
+
+      });
+
     }
 
+    deleteP(id:any){
+      this.prSvc.eliminaIdP(id).subscribe(resp => {
+        // console.log(resp);
+
+        this.error = undefined;
+      }, err => {
+        // console.log(err.error.message);
+        this.error = err.error.message;
+        this.getAll();
+      });
+
+}
 
 }

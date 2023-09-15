@@ -7,17 +7,40 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="co
+ntainer-fluid">
   <div class="row">
 
     <div class="col-12 p-3" *ngFor="let prenotazione of prenotazioni">
       <!-- (click)="getIdP(prenotazione.idPrenotazione)" -->
       <div class="card" *ngIf="getIdUser()==prenotazione.utente" >
       <h2>Prenotazioni effettuate dal cliente</h2>
-      <button *ngIf="prenotazione.pagata==false" (click)="setP(prenotazione)"> Termina Prenotazione</button>
+
+      <div class="col-12 p-3">
+        <div class="card border-danger">
+          <div class="card-body">
+            <!-- <button *ngIf="prenotazione.pagata==false" (click)="setP(prenotazione)"> Termina Prenotazione</button> -->
+            <button (click)="prenotPag(prenotazione.idPrenotazione)">Termina Transazione e mostra il Prezzo</button>
+            <h5 class="card-title mb-0">LOG OUT</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 p-3">
+        <div class="card border-danger">
+          <div class="card-body">
+            <button (click)="deleteP(prenotazione.idPrenotazione)">Elimina Prenotazione  </button>
+            <h5 class="card-title mb-0">LOG OUT</h5>
+          </div>
+        </div>
+      </div>
+
+
       <div class="card">
         <div class="card-body">
           <h5 class="card-title mb-0">{{prenotazione.idPrenotazione}}</h5>
+          <h5 class="card-title mb-0">Prenotazione è:{{prenotazione.pagata}}</h5>
+          <h5 class="card-title mb-0">Prenotazione è:{{prenotazione.prezzoTot}}</h5>
         </div>
       </div>
       </div>
@@ -33,23 +56,6 @@
       </div>
     </div>
 
-    <div class="col-12 p-3">
-      <div class="card border-danger">
-        <div class="card-body">
-          <button>Concludi Prenotazione  </button>
-          <h5 class="card-title mb-0">LOG OUT</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 p-3">
-      <div class="card border-danger">
-        <div class="card-body">
-          <button>Elimina Prenotazione  </button>
-          <h5 class="card-title mb-0">LOG OUT</h5>
-        </div>
-      </div>
-    </div>
 
 
 

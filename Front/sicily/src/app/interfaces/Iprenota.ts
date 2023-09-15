@@ -7,6 +7,7 @@ export interface Iprenota {
 	viaggi?: Icity[];
 	spiaggia?: Ispiaggia[];
   ristorante?: Iristorante[];
+  prezzoTot?: number;
 	pagata?: boolean;
 	utente?: number;
 }

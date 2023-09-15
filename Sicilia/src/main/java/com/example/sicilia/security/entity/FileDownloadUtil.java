@@ -12,7 +12,7 @@ public class FileDownloadUtil {
     private Path foundFile;
      
     public Resource getFileAsResource(String fileCode) throws IOException {
-        Path dirPath = Paths.get("Files-Upload");
+        Path dirPath = Paths.get("src/main/resources/upload");
          
         Files.list(dirPath).forEach(file -> {
             if (file.getFileName().toString().startsWith(fileCode)) {
@@ -27,4 +27,5 @@ public class FileDownloadUtil {
          
         return null;
     }
+  
 }

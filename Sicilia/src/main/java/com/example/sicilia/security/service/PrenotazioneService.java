@@ -38,6 +38,7 @@ public class PrenotazioneService {
 		Prenotazione p = provider.getObject().builder()
 				.utente(idUser)
                 .pagata(false)
+                .prezzoTot(0.0)
 				.build();
          
 		repo.save(p);
@@ -45,6 +46,16 @@ public class PrenotazioneService {
         log.info("---------Aggiunto al DataBase");
 		return p;
 	}
+	
+	
+	public Prenotazione prenotaPagata( Long idPrenotazione) {
+		
+		Prenotazione p = repo.findById( idPrenotazione).get();
+		p.setPagata(true);
+		repo.save(p);
+		System.out.println(p);
+		return p;
+	};
 	
 	@Transactional
 	public Prenotazione prenotaComune(Long idPrenotazione , Long idCity) {
@@ -65,6 +76,7 @@ public class PrenotazioneService {
 		List<Ristorante> c = ( p.getRistorante());
 		c.add(rsSvc.findById(idRist));
 		p.setRistorante(c);
+		p.setPrezzoTot(p.getPrezzoTot()+ rsSvc.findById(idRist).getPrezzoPersona());
 		repo.save(p);
 		System.out.println(p);
 		return p;
@@ -82,6 +94,8 @@ public class PrenotazioneService {
 		System.out.println(p);
 		return p;
 	};
+	
+	
 	
     public Prenotazione findById(long id) {
         

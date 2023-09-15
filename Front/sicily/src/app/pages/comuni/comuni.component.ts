@@ -48,6 +48,21 @@ export class ComuniComponent implements OnInit {
     this.comuniSvc.addPutC(this.prSvc.prenotazioneInCorso.idPrenotazione,idC).subscribe(resp => {
       console.log(resp);
       this.error = undefined;
+
+      const indiceDaRimuovere = this.comuni.findIndex(elemento => elemento.idCity === idC);
+      console.log(indiceDaRimuovere);
+
+
+    if (indiceDaRimuovere !== -1) {
+      this.comuni.splice(indiceDaRimuovere, 1); // Rimuove l'elemento dall'array
+    } else {
+      console.error(`L'elemento con id ${idC} non è stato trovato nell'array.`);
+    }
+
+
+
+    // console.log(this.comuni);
+
     }, err => {
       console.log(err.error.message);
       this.error = err.error.message;

@@ -96,12 +96,11 @@ public class CityService {
 	
 	public void loadCity() {
 		 
-		addCity("Licata", "Agrigento" , "licatese", 
-				"/Sicilia/src/main/resources/upload/94G4qL9Y-Agrigento.jpg", 
+		addCity("Licata", "Agrigento" , "licatese", "http0nx3-Vc5BXXwYqGlyZ3OvBu4=", 
 				LocalDate.of(2024, 7, 18), 
 				"Chiesa Sant'Angelo",123.99);
 		
-		addCity("Palermo", "Palermo" , "licatese", "/Sicilia/src/main/resources/upload/94G4qL9Y-Agrigento.jpg", 
+		addCity("Palermo", "Palermo" , "licatese","L9Y-Agrigento.jpg", 
 				LocalDate.of(2025, 7, 18), 
 				"Duomo",123.99 );
 		

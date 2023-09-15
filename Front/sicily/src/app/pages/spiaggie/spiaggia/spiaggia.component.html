@@ -1,0 +1,33 @@
+<p>spiaggia works!</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+    </div>
+    <div class="col-12 text-center"><h2>Dettagli Spiaggia{{ spiaggia.idSpiaggia }}</h2></div>
+    <div class="col-12 p-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Nome città : {{ spiaggia.nome }}</h5>
+          <h5 class="card-subtitle mb-2 text-body-secondary">
+            Lunghezza :  {{ spiaggia.lunghezzaMetri }}
+          </h5>
+
+
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Date spiaggia : <b>{{spiaggia.prenotaSp }}</b>
+          </h6>
+
+
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Prezzo a persona {{ spiaggia.prezzoOmbrellne }}
+          </h6>
+
+          <button [routerLink]="['/spiaggie']">Ritorna Indietro</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
