@@ -64,6 +64,7 @@ public class PrenotazioneService {
 		List<City> c = ( p.getViaggi());
 		c.add(citSvc.findById(idCity));
 		p.setViaggi(c);
+		p.setPrezzoTot(p.getPrezzoTot()+ citSvc.findById(idCity).getPrezzoHotel());
 		repo.save(p);
 		System.out.println(p);
 		return p;
@@ -90,6 +91,7 @@ public class PrenotazioneService {
 		List<Spiaggia> s = ( p.getSpiaggia());
 		s.add(spSvc.findById(idSp));
 		p.setSpiaggia(s);
+		p.setPrezzoTot(p.getPrezzoTot()+ spSvc.findById(idSp).getPrezzoOmbrellne());
 		repo.save(p);
 		System.out.println(p);
 		return p;

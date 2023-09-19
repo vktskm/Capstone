@@ -8,10 +8,12 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private svc: AuthService){}
+  constructor(private svc: AuthService ){}
+
 
   ngOnInit(): void {
      this.svc.restoreUser();
   }
+
 
 }

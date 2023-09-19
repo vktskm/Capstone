@@ -1,0 +1,33 @@
+.corpo{
+  background-color: #7a1622;
+  height: 100vh;
+  width: 100vw;
+
+.custom-gradient {
+  width: 75%;
+  background: rgb(32, 32, 32);
+  background: radial-gradient(circle,
+      rgba(32, 32, 32, 1) 0%,
+      #401677 76%,
+      rgba(25, 25, 25, 1) 100%);
+
+  &:hover {
+    background: radial-gradient(circle,
+        rgba(32, 32, 32, 1) 0%,
+        #5211a7 76%,
+        rgba(25, 25, 25, 1) 100%);
+    border: 1px solid #5211a7;
+  }
+}
+
+form {
+  .form-floating {
+    width: 95%;
+  }
+}
+
+.custom-border {
+  border: 2px solid #781795;
+}
+
+}
