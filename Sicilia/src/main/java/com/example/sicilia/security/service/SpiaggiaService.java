@@ -80,17 +80,22 @@ public class SpiaggiaService {
 	public void loadSpiaggia() {
 		 
 		addSpiaggia("Rocca", 1251.35,
-				"C:\\U-Agrigento.jpg", 
+				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg", 
 				LocalDate.of(2024, 8, 18),23.99);
-		addSpiaggia("Mollarella", 2251.35,"C:\\U-Agrigento.jpg",
+		addSpiaggia("Mollarella", 2251.35,
+				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg",
 				LocalDate.of(2024, 7, 18), 35.99);
-		addSpiaggia("Mondello", 4251.35,"C:\\U-Agrigento.jpg",
+		addSpiaggia("Mondello", 4251.35,
+				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg",
 				LocalDate.of(2024, 5, 18), 45.99);
-		addSpiaggia("Isola delle Femmine", 2867.35, "C:\\U-Agrigento.jpg" ,
+		addSpiaggia("Isola delle Femmine", 2867.35, 
+				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg" ,
 				LocalDate.of(2024, 7, 16),31.99);
-		addSpiaggia("Capaci", 3251.35, "C:\\U-Agrigento.jpg" ,
+		addSpiaggia("Capaci", 3251.35, 
+				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg" ,
 				LocalDate.of(2024, 6, 18), 20.49);
-		addSpiaggia("Macari", 2050.35, "C:\\U-Agrigento.jpg" ,
+		addSpiaggia("Macari", 2050.35, 
+				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg" ,
 				LocalDate.of(2024, 7, 18), 32.49);
 	}
 	

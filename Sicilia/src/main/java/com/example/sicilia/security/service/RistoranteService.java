@@ -90,14 +90,18 @@ public class RistoranteService {
 	public void loadRistorante() {
 		 
 		addRistorante("Madia","Corso Roma","Stellata" ,
-				"C:\\U-Agrigento.jpg", LocalDate.of(2024, 8, 18),230.49);
+				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
+				LocalDate.of(2024, 8, 18),230.49);
 		
 		addRistorante("Logico","Cofddso Roma","Stellata" ,
-				"C:\\U-Agrigeddnto.jpg", LocalDate.of(2024, 8, 18),230.49);
+				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
+				LocalDate.of(2024, 8, 18),230.49);
 		addRistorante("Sferaccavallo","Cofddso Roma","Stellata" ,
-				"C:\\U-Agrigeddnto.jpg", LocalDate.of(2024, 8, 18),230.49);
+				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
+				LocalDate.of(2024, 8, 18),230.49);
 		addRistorante("ffttyt","Cofddso Roma","Stellata" ,
-				"C:\\U-Agrigeddnto.jpg", LocalDate.of(2024, 8, 18),230.49);	
+				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
+				LocalDate.of(2024, 8, 18),230.49);	
 				
 	}
 	

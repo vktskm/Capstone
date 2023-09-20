@@ -1,40 +1,43 @@
-<p>comuni works!</p>
 
+<body>
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center"><h3>LISTA COMUNI</h3></div>
 
-    <div class="col-12 text-center"><h3>GESTIONE COMUNI</h3></div>
-    <div class="col-4 p-3" *ngFor="let comune of comuni">
-      <div class="card" >
-
+    <div class="col-xs-12 col-md-6 col-lg-4 p-3 parte" *ngFor="let comune of comuni">
+      <div class="card " >
         <div class="card-body">
-          <img src="{{comune.urlFotoCity}}" alt="Concordia.">
+          <img [src]="comune.urlFotoCity" alt="foto">
           <h5 class="card-title">{{ comune.idCity }} - {{ comune.nome }}</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            {{ comune.provincia }}
-          </h6>
+          <h6 class="card-subtitle mb-2 ">{{ comune.provincia }}</h6>
         </div>
-        <p></p>
+
+
+      <div >
         <div>
-          <div>
-          <button (click)="put(comune.idCity)" >Aggiungi Comune Alla Prenotazione </button>
+          <button class="btn btn-danger shadow p-2" (click)="put(comune.idCity)" >Aggiungi il Comune alla Prenotazione </button>
         </div>
          <p></p>
         <div>
-          <button [routerLink]="['/comune/' + comune.idCity]">Dettagli del comune</button>
+          <button class="btn btn-danger shadow p-2" [routerLink]="['/comune/' + comune.idCity]">Dettagli del comune</button>
         </div>
-
       </div>
 
+      </div>
     </div>
   </div>
-</div>
+  </div>
 
 
 
+
+<div class="button-pos">
 <div>
-  <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
+  <button class="btn btn-success  p-5" [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
 </div>
 <div>
-  <button [routerLink]="['/spiaggie']">Prenota Una Spiaggia</button>
+  <button class="btn btn-info p-5" [routerLink]="['/spiaggie']">Prenota Una Spiaggia</button>
+</div>
 </div>
 
+</body>

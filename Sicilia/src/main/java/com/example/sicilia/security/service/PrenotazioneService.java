@@ -45,7 +45,7 @@ public class PrenotazioneService {
         System.out.println(p);
         log.info("---------Aggiunto al DataBase");
 		return p;
-	}
+	};
 	
 	
 	public Prenotazione prenotaPagata( Long idPrenotazione) {

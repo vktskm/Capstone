@@ -38,7 +38,8 @@ public class AuthController {
     	String token = authService.login(loginDto);
 
     	User u = userSvc.findByUsername(loginDto.getUsername());
-        JWTAuthResponse jwtAuthResponse = new JWTAuthResponse();
+
+    	JWTAuthResponse jwtAuthResponse = new JWTAuthResponse();
         jwtAuthResponse.setUserId(u.getId());
         jwtAuthResponse.setUsername(loginDto.getUsername());
         jwtAuthResponse.setAccessToken(token);

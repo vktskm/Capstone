@@ -96,13 +96,32 @@ public class CityService {
 	
 	public void loadCity() {
 		 
-		addCity("Licata", "Agrigento" , "licatese", "http0nx3-Vc5BXXwYqGlyZ3OvBu4=", 
+		addCity("Licata", "Agrigento" , "licatese", 
+				"https://images.unsplash.com/photo-1598436745057-65e3750c3e87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80", 
 				LocalDate.of(2024, 7, 18), 
 				"Chiesa Sant'Angelo",123.99);
 		
-		addCity("Palermo", "Palermo" , "licatese","L9Y-Agrigento.jpg", 
+		addCity("Paleero", "Palermo" , "lica", 
+				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg ",
 				LocalDate.of(2025, 7, 18), 
 				"Duomo",123.99 );
+		
+		addCity("Lice", "Agrigento" , "licatese", 
+				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg", 
+				LocalDate.of(2024, 7, 18), 
+				"Chiesa Sant'Angelo",123.99);
+		
+		addCity("Palfgo" ,"Palermo","lica", 
+				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg ",
+				LocalDate.of(2025, 7, 18), 
+				"Duomo",123.99 );
+		
+		addCity("Lisjjsjgrigento" ,"Palermo","licatese", 
+				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg", 
+				LocalDate.of(2024, 7, 18), 
+				"Chiesa Sant'Angelo",123.99);
+		
+		
 		
 	}
 	
