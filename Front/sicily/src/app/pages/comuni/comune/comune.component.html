@@ -10,20 +10,13 @@
       <div class="card ">
         <div class="card-body">
           <img  class="img-fluid" [src]="comune.urlFotoCity" alt="foto">
-          <h5 class="card-title">Nome città : {{ comune.nome }}</h5>
-          <h5 class="card-subtitle mb-2 ">
-            Nome provincia :  {{ comune.provincia }}
-          </h5>
-          <h5 class="card-subtitle mb-2">
-            Lingua principale: {{comune.linguaPrincipale }}
-          </h5>
-          <h5>Monumento famoso : {{comune.monumentoFamoso }}</h5>
-
-          <h5 class="card-subtitle mb-2 ">
-            Data disponibile {{ comune.prenotaAlb }} , prezzoHotel {{ comune.prezzoHotel }}
-          </h5>
-
-          <button class="btn btn-danger shadow mb-2"  [routerLink]="['/comuni']">Ritorna Indietro</button>
+          <h5 class="card-title p-2 mb-2">Nome città : {{ comune.nome }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 ">Nome provincia :  {{ comune.provincia }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 ">Lingua principale : {{comune.linguaPrincipale }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 ">Monumento famoso : {{comune.monumentoFamoso }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 ">Data disponibile : {{ comune.prenotaAlb }} </h5>
+          <h5 class="card-subtitle p-2 mb-2 ">Prezzo hotel : {{ comune.prezzoHotel }}</h5>
+          <button class="btn btn-danger shadow p-2 mb-2"  [routerLink]="['/comuni']">Ritorna Indietro</button>
         </div>
       </div>
     </div>

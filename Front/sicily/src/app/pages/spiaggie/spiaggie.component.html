@@ -1,40 +1,33 @@
-<p>spiaggie works!</p>
 
+<body>
 <div class="container-fluid">
 
   <div class="col-12 text-center"><h3>GESTIONE COMUNI</h3></div>
-  <div class="col-4 p-3" *ngFor="let spiaggia of spiaggie">
+  <div class="col-md-6 col-lg-4 p-3" *ngFor="let spiaggia of spiaggie">
     <div class="card" >
       <div class="card-body">
-        <h5 class="card-title">{{ spiaggia.idSpiaggia }} - {{ spiaggia.nome }}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">
-          {{ spiaggia.lunghezzaMetri }}
-        </h6>
-
-        <div>
-          <p></p>
-        <div>
-            <button (click)="put(spiaggia.idSpiaggia)" >Aggiungi spiaggia alla Prenotazione </button>
+        <img [src]="spiaggia.urlFotoSpiaggia" alt="foto">
+        <h5 class="card-title p-2 mb-2"> Spiaggia :  {{ spiaggia.nome }}</h5>
+        <h5 class="card-subtitle p-2 mb-2 ">Lunghezza {{ spiaggia.lunghezzaMetri }}</h5>
         </div>
+            <button (click)="put(spiaggia.idSpiaggia)" >Aggiungi spiaggia alla Prenotazione </button>
+    </div>
         <p></p>
         <div>
           <button [routerLink]="['/spiaggia/' + spiaggia.idSpiaggia]">Vai aidettagli del comune</button>
         </div>
         <p></p>
       </div>
+   </div>
 
-
+<div class="button-pos">
+    <div>
+      <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
     </div>
+    <p></p>
+    <div>
+      <button [routerLink]="['/ristorante']">Prenota un ristorante</button>
+    </div>
+</div>
 
-  </div>
-</div>
-</div>
-
-
-<div>
-  <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
-</div>
-<p></p>
-<div>
-  <button [routerLink]="['/ristorante']">Prenota un ristorante</button>
-</div>
+</body>

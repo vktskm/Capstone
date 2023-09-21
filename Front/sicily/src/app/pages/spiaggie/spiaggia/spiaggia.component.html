@@ -1,33 +1,24 @@
-<p>spiaggia works!</p>
 
+<body>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
 
     </div>
     <div class="col-12 text-center"><h2>Dettagli Spiaggia{{ spiaggia.idSpiaggia }}</h2></div>
-    <div class="col-12 p-3">
+    <div class="col-12 spiaggia p-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Nome città : {{ spiaggia.nome }}</h5>
-          <h5 class="card-subtitle mb-2 text-body-secondary">
-            Lunghezza :  {{ spiaggia.lunghezzaMetri }}
-          </h5>
-
-
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            Date spiaggia : <b>{{spiaggia.prenotaSp }}</b>
-          </h6>
-
-
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            Prezzo a persona {{ spiaggia.prezzoOmbrellne }}
-          </h6>
-
-          <button [routerLink]="['/spiaggie']">Ritorna Indietro</button>
+          <img  class="img-fluid" [src]="spiaggia.urlFotoSpiaggia" alt="foto">
+          <h5 class="card-title p-2 mb-2">Nome spiaggia : {{ spiaggia.nome }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 "> Lunghezza :  {{ spiaggia.lunghezzaMetri }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 "> Data spiaggia : {{spiaggia.prenotaSp }}</h5>
+          <h5 class="card-subtitle p-2 mb-2 "> Prezzo ombrellone {{ spiaggia.prezzoOmbrellne }}</h5>
+          <button class="btn btn-danger shadow p-2" [routerLink]="['/spiaggie']">Ritorna Indietro</button>
         </div>
       </div>
     </div>
 
   </div>
 </div>
+</body>
