@@ -13,7 +13,6 @@ import { NgForm } from '@angular/forms';
 export class ComuniComponent implements OnInit {
   comuni : Icity[]=[];
   prenotazioni: Iprenota[] = [];
-  comune: Icity ={};
   error: undefined | string;
   @ViewChild('f') form!: NgForm;
 
@@ -38,7 +37,7 @@ export class ComuniComponent implements OnInit {
       console.log(this.comuni)
       this.form.reset();
     })
-}
+  }
 
 
   getAllP(){

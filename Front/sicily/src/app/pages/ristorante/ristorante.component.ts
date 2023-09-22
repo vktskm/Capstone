@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Iprenota } from 'src/app/interfaces/Iprenota';
 import { Iristorante } from 'src/app/interfaces/Iristorante';
 import { PrenotazioneService } from 'src/app/service/prenotazione.service';
@@ -15,6 +16,7 @@ export class RistoranteComponent implements OnInit{
   prenotazioni: Iprenota[] = [];
 
   error: undefined | string;
+  @ViewChild('f') form!: NgForm;
 
   constructor(private rsSvc: RistoranteService , private prSvc: PrenotazioneService) { }
 
@@ -43,6 +45,14 @@ export class RistoranteComponent implements OnInit{
      console.log(data); })
   }
 
+
+  getByNome() {
+    this.rsSvc.getNome(this.form.value).subscribe(ristoranti =>{
+      this.ristoranti = ristoranti;
+      console.log(this.ristoranti)
+      this.form.reset();
+    })
+  }
 
   put(idR:any ): void {
 

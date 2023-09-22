@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.example.sicilia.security.entity.City;
 import com.example.sicilia.security.entity.Ristorante;
 import com.example.sicilia.security.entity.Spiaggia;
 import com.example.sicilia.security.repository.RistoranteRepository;
@@ -83,6 +84,12 @@ public class RistoranteService {
         return r;
 	}
     
+    public List<Ristorante> findByName(String nome) {
+    	List<Ristorante> r = repo.getByName(nome);
+    	log.info("City" + nome + " : ");
+		r.forEach(l-> log.info(l.toString()));
+    	return r;
+    }
     
     
     

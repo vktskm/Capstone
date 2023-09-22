@@ -54,7 +54,8 @@
 
 
     <div class="col-md-6 col-lg-4 p-3" *ngFor="let prenotazione of prenotNonPagate" >
-      <!-- <div class="card" *ngIf="getIdUser()==prenotazione.utente" > -->
+      <div *ngIf="getIdUser()==prenotazione.utente" >
+
       <div class="card " >
       <h5 class="p-3">Prenotazioni cliente utente : {{prenotazione.utente}}</h5>
       <div class="card-body">
@@ -71,7 +72,7 @@
          <div *ngFor="let rist of prenotazione.ristorante">
           <h5 class="card-title mb-0"> {{rist.nome}} :  {{rist.prezzoPersona}}€</h5>
          </div>
-        <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5>
+        <!-- <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5> -->
         <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot}}€</h5>
       </div>
 
@@ -84,6 +85,10 @@
 
   </div>
       <!-- fine card -->
+
+  </div>
+  <!-- fine ngIF -->
+
     </div>
   </div>
 </div>
@@ -110,7 +115,7 @@
          <div *ngFor="let rist of prenotazione.ristorante">
           <h5 class="card-title mb-0"> {{rist.nome}} :  {{rist.prezzoPersona}}€</h5>
          </div>
-        <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5>
+        <!-- <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5> -->
         <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot}}€</h5>
       </div>
 

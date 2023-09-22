@@ -4,17 +4,23 @@
   <div class="row">
     <div class="col-12 text-center"><h3>LISTA COMUNI</h3></div>
 
+    <div class="d-flex box-s">
 
-    <div class="col-12 text-center" >
-      <form #f="ngForm" (ngSubmit)="getByNome()">
-        <input type="text" ngModel placeholder="Search..." id="nome" name="nome" required>
-        <span>
-          <button class="btn btn-light" type="submit" > Cerca</button>
-        </span>
-      </form>
+      <div class="col-6 text-center" >
+        <form #f="ngForm" (ngSubmit)="getByNome()">
+          <div class="box-a p-2 m-2">
+            <input type="text" ngModel placeholder="Search..." id="nome" name="nome" required>
+            <button class="btn btn-success" type="submit" > Cerca</button>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="col-6 text-center" >
+        <button class="btn btn-warning p-2 m-2" (click)="getAll()">Mostra Tutto</button>
+      </div>
     </div>
 
-    <button class="btn btn-light" (click)="getAll()">Mostra Tutto</button>
 
     <div class=" col-md-6 col-lg-4 p-3 parte" *ngFor="let comune of comuni">
       <div class="card " >

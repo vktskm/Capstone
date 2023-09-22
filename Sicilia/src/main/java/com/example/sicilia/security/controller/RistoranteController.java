@@ -72,8 +72,16 @@ public class RistoranteController {
 				                        rs.getPrezzoPersona()				
 				                       );
 		
-		return new ResponseEntity<Ristorante>(r, HttpStatus.CREATED);
-				
+		return new ResponseEntity<Ristorante>(r, HttpStatus.CREATED);			
+	}
+	
+	@GetMapping("/findbyrist/{nome}")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<List<Ristorante>> findByCity(@PathVariable String nome){
+		
+		List<Ristorante> r = svc.findByName(nome);
+		ResponseEntity<List<Ristorante>> resp = new ResponseEntity<List<Ristorante>>(r , HttpStatus.OK);
+		return resp;
 	}
 	
 	/*

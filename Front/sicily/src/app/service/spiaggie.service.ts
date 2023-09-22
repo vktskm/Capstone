@@ -35,6 +35,20 @@ export class SpiaggieService {
     });
   }
 
+  getNome(nome: string){
+
+    this.headers = this.headers.set(
+      'Authorization',
+      'Bearer ' + this.userSvc.getToken()
+    );
+    console.log(nome);
+    console.log(Object.values(nome));
+    return this.http.get<Ispiaggia[]>('http://localhost:8080/api/spiaggia/findbyspiaggia/'+ Object.values(nome), {
+      headers: this.headers
+    });
+  }
+
+
   addPutS(idP:any,idC:any) {
     this.headers = this.headers.set(
       'Authorization',

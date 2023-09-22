@@ -96,32 +96,65 @@ public class CityService {
 	
 	public void loadCity() {
 		 
-		addCity("Licata", "Agrigento" , "licatese", 
-				"https://images.unsplash.com/photo-1598436745057-65e3750c3e87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80", 
-				LocalDate.of(2024, 7, 18), 
-				"Chiesa Sant'Angelo",123.99);
-		
-		addCity("Paleero", "Palermo" , "lica", 
-				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg ",
-				LocalDate.of(2025, 7, 18), 
-				"Duomo",123.99 );
-		
-		addCity("Lice", "Agrigento" , "licatese", 
+		addCity("Palermo", "Pa" , "Italiano", 
 				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg", 
 				LocalDate.of(2024, 7, 18), 
-				"Chiesa Sant'Angelo",123.99);
+				"Cattedrale di Palermo",144.99);
 		
-		addCity("Palfgo" ,"Palermo","lica", 
-				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg ",
+		addCity("Agrigento", "AG" , "Italiano", 
+				"https://cdn.pixabay.com/photo/2018/10/15/17/30/sicily-3749518_1280.jpg",
 				LocalDate.of(2025, 7, 18), 
-				"Duomo",123.99 );
+				"Valle dei Templi",124.99 );
 		
-		addCity("Lisjjsjgrigento" ,"Palermo","licatese", 
-				"https://cdn.pixabay.com/photo/2015/03/23/15/39/palermo-686207_1280.jpg", 
+		addCity("Trapani", "Tr" , "italiano", 
+				"https://cdn.pixabay.com/photo/2014/10/28/15/54/sicily-506644_1280.jpg", 
 				LocalDate.of(2024, 7, 18), 
-				"Chiesa Sant'Angelo",123.99);
+				"Porto di trapani",119.99);
 		
+		addCity("Licata" ,"Ag","Italiano", 
+				"https://d1dn9atxuly58a.cloudfront.net/ragusaonline/foto/383/383-11-51-10-3967.jpg",
+				LocalDate.of(2024, 7, 18), 
+				"Chiesa Sant'Angelo",134.99 );
 		
+		addCity("Ragusa" ,"Rg","Italiano", 
+				"https://cdn.pixabay.com/photo/2020/03/22/11/36/dubrovnik-4956823_1280.jpg", 
+				LocalDate.of(2024, 8, 18), 
+				"Duomo di San Giorgio",109.99);
+		
+		addCity("Modica" ,"Rg","Italiano", 
+				"https://cdn.pixabay.com/photo/2017/01/03/23/22/modica-1950969_1280.jpg", 
+				LocalDate.of(2023, 12, 18), 
+				"Chiesa Madre",89.99);
+		
+		addCity("Noto" ,"Sr","Italiano", 
+				"https://www.sikelia.net/wp-content/uploads/2020/12/cattedrale-noto.jpg", 
+				LocalDate.of(2023, 11, 13), 
+				"Cattedrale di San Nicolò",129.99);
+		
+		addCity("Siracusa" ,"Sr","Italiano", 
+				"https://www.siciland.com/it/wp-content/uploads/2016/10/ortigia-siracusa.jpg", 
+				LocalDate.of(2024, 7, 9), 
+				"Ortigia",159.99);
+		
+		addCity("Catania" ,"Ct","Italiano", 
+				"https://cdn.pixabay.com/photo/2014/09/21/10/01/santa-agata-454834_1280.jpg", 
+				LocalDate.of(2023, 11, 9), 
+				"Duomo Sant'Agata",113.49);
+		
+		addCity("Toarmina" ,"Me","Italiano", 
+				"https://www.sicilia.info/wp-content/uploads/sites/91/taormina-teatro.jpg", 
+				LocalDate.of(2023, 12, 30), 
+				"Giardini Naxos",199.49);
+		
+		addCity("Messina" ,"Me","Italiano", 
+				"https://cdn.pixabay.com/photo/2016/12/21/19/10/sicily-1923672_1280.jpg", 
+				LocalDate.of(2024, 6, 21), 
+				"Cattedrale di Santa Maria Assunta",113.49);
+		
+		addCity("Cefalu" ,"Pa","Italiano", 
+				"https://duomocefalu.it/wp-content/uploads/2020/04/Duomo_risoluzione7-605x465.jpg", 
+				LocalDate.of(2024, 7, 30), 
+				"Duomo di Cefalù",109.49);
 		
 	}
 	

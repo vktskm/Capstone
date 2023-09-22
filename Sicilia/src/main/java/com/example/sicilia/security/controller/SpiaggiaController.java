@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.sicilia.security.entity.City;
 import com.example.sicilia.security.entity.Spiaggia;
 import com.example.sicilia.security.service.SpiaggiaService;
 
@@ -67,6 +68,15 @@ public class SpiaggiaController {
 		
 		return new ResponseEntity<Spiaggia>(s, HttpStatus.CREATED);
 				
+	}
+	
+	@GetMapping("/findbyspiaggia/{nome}")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<List<Spiaggia>> findByCity(@PathVariable String nome){
+		System.out.println("nome funziona");
+		List<Spiaggia> s = svc.findByName(nome);
+		ResponseEntity<List<Spiaggia>> resp = new ResponseEntity<List<Spiaggia>>(s , HttpStatus.OK);
+		return resp;
 	}
 	
 	/*

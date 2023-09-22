@@ -44,7 +44,7 @@ export class PrenotazioneComponent implements OnInit{
       this.prenotNonPagate = [];
       for (let i = 0; i < this.prenotazioni.length; i++)
          {
-             if (this.prenotazioni[i].pagata == true)
+             if (this.prenotazioni[i].pagata == true && this.prenotazioni[i].utente == this.userSvc.getId())
                 {
                   this.prenotPagate.push(this.prenotazioni[i]);
                 }

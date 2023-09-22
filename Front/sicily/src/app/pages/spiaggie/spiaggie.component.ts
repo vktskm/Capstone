@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Iprenota } from 'src/app/interfaces/Iprenota';
 import { Ispiaggia } from 'src/app/interfaces/Ispiaggia';
 import { PrenotazioneService } from 'src/app/service/prenotazione.service';
@@ -15,6 +16,7 @@ export class SpiaggieComponent {
   prenotazioni: Iprenota[] = [];
 
   error: undefined | string;
+  @ViewChild('f') form!: NgForm;
 
   constructor(private spSvc: SpiaggieService , private prSvc: PrenotazioneService) { }
 
@@ -43,6 +45,13 @@ export class SpiaggieComponent {
      console.log(data); })
   }
 
+  getByNome() {
+    this.spSvc.getNome(this.form.value).subscribe(spiaggie =>{
+      this.spiaggie = spiaggie;
+      console.log(this.spiaggie)
+      this.form.reset();
+    })
+}
 
   put(idS:any ): void {
 
