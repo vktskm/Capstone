@@ -1,8 +1,9 @@
 import { PrenotazioneService } from 'src/app/service/prenotazione.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Icity } from 'src/app/interfaces/Icity';
 import { Iprenota } from 'src/app/interfaces/Iprenota';
 import { ComuniService } from 'src/app/service/comuni.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-comuni',
@@ -12,8 +13,9 @@ import { ComuniService } from 'src/app/service/comuni.service';
 export class ComuniComponent implements OnInit {
   comuni : Icity[]=[];
   prenotazioni: Iprenota[] = [];
-
+  comune: Icity ={};
   error: undefined | string;
+  @ViewChild('f') form!: NgForm;
 
   constructor(private comuniSvc: ComuniService , private prSvc: PrenotazioneService) { }
 
@@ -29,6 +31,15 @@ export class ComuniComponent implements OnInit {
       console.log(this.comuni);
     });
   }
+
+  getByNome() {
+    this.comuniSvc.getNome(this.form.value).subscribe(comuni =>{
+      this.comuni = comuni;
+      console.log(this.comuni)
+      this.form.reset();
+    })
+}
+
 
   getAllP(){
     this.prSvc.getAllP().subscribe((data) => {

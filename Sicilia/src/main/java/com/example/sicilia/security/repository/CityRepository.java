@@ -11,7 +11,7 @@ import com.example.sicilia.security.entity.Ristorante;
 
 public interface CityRepository extends JpaRepository<City,Long>{
 	
-	@Query("SELECT c FROM City c WHERE c.nome LIKE :nome")
+	@Query("SELECT c FROM City c WHERE c.nome ILIKE :nome")
 	public List<City> getByName(String nome);
 	
 	

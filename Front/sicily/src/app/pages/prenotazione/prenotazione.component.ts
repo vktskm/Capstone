@@ -15,6 +15,8 @@ export class PrenotazioneComponent implements OnInit{
     constructor(private autSvc: AuthService , private prSvc: PrenotazioneService , private userSvc: UserService, private router:Router){}
 
     prenotazioni: Iprenota[] = [];
+    prenotPagate: Iprenota[] = [];
+    prenotNonPagate: Iprenota[] = [];
 
     error: undefined | string;
 
@@ -29,9 +31,31 @@ export class PrenotazioneComponent implements OnInit{
     getAll() : void {
       this.prSvc.getAllP().subscribe((data) => {
         this.prenotazioni = data;
+        this.checkPagate();
+
         console.log(this.prenotazioni);
       });
+
     }
+
+    checkPagate() : void {
+
+      this.prenotPagate = [];
+      this.prenotNonPagate = [];
+      for (let i = 0; i < this.prenotazioni.length; i++)
+         {
+             if (this.prenotazioni[i].pagata == true)
+                {
+                  this.prenotPagate.push(this.prenotazioni[i]);
+                }
+             else{
+                 this.prenotNonPagate.push(this.prenotazioni[i]);
+             }
+
+         }
+    }
+
+
 
     getIdP(id:any) {
         this.prSvc.getByIdP(id).subscribe((data) => {

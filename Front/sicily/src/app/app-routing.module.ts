@@ -12,6 +12,8 @@ import { UserComponent } from './pages/user/user.component';
 import { ComuneComponent } from './pages/comuni/comune/comune.component';
 import { RistorantiComponent } from './pages/ristorante/ristoranti/ristoranti.component';
 import { SpiaggiaComponent } from './pages/spiaggie/spiaggia/spiaggia.component';
+import { AboutComponent } from './pages/about/about.component';
+import { CondizioniComponent } from './pages/condizioni/condizioni.component';
 
 const routes: Routes = [
 
@@ -67,6 +69,18 @@ const routes: Routes = [
   {
     path: "user",
     component: UserComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "about",
+    component: AboutComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "condizioni",
+    component: CondizioniComponent,
     canActivate: [AuthGuard]
   }
 

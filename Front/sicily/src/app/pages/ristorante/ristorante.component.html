@@ -1,33 +1,37 @@
 
-<p>comuni works!</p>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center"><h3>LISTA RISTORANTI</h3></div>
 
-<div class="container-fluid">
+      <div class=" col-md-6 col-lg-4 p-3 parte" *ngFor="let ristorante of ristoranti">
+        <div class="card " >
+          <div class="card-body">
+            <img [src]="ristorante.urlFotoCucina" alt="foto">
+            <h5 class="card-title p-2 mb-2"> Ristorante : {{ ristorante.nome }}</h5>
+            <h5 class="card-subtitle p-2 mb-2 ">Indirizzo : {{ ristorante.indirizzo }}</h5>
+          </div>
 
-    <div class="col-12 text-center"><h3>GESTIONE COMUNI</h3></div>
-    <div class="col-4 p-3" *ngFor="let ristorante of ristoranti">
-      <div class="card" >
-        <div class="card-body">
-          <h5 class="card-title">{{ristorante.idRistorante }} - {{ristorante.nome}}</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            {{ ristorante.indirizzo }}
-          </h6>
-          <p></p>
+        <div >
           <div>
-            <div>
-              <button (click)="put(ristorante.idRistorante)" >Aggiungi ristoranti alla Prenotazione </button>
+            <button class="btn btn-danger shadow p-2 mb-2" (click)="put(ristorante.idRistorante)" >Aggiungi Ristorante </button>
           </div>
-          <p></p>
+           <p></p>
           <div>
-            <button [routerLink]="['/ristoranti/' + ristorante.idRistorante]">Vai aidettagli del Ristorante</button>
+            <button class="btn btn-danger shadow p-2 mb-2" [routerLink]="['/ristoranti/' + ristorante.idRistorante]">Dettagli del Ristorante</button>
           </div>
-          <p></p>
+        </div>
+
+        </div>
       </div>
-
     </div>
+    </div>
+
+
+  <div class="button-pos">
+  <div>
+    <button class="btn btn-success p-3" [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
   </div>
-</div>
+  </div>
 
-
-<div>
-  <button [routerLink]="['/prenotazione']">Concludi la Prenotazione</button>
-</div>
+  </body>

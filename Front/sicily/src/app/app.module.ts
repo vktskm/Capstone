@@ -17,6 +17,8 @@ import { UserComponent } from './pages/user/user.component';
 import { ComuneComponent } from './pages/comuni/comune/comune.component';
 import { RistorantiComponent } from './pages/ristorante/ristoranti/ristoranti.component';
 import { SpiaggiaComponent } from './pages/spiaggie/spiaggia/spiaggia.component';
+import { AboutComponent } from './pages/about/about.component';
+import { CondizioniComponent } from './pages/condizioni/condizioni.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { SpiaggiaComponent } from './pages/spiaggie/spiaggia/spiaggia.component'
     UserComponent,
     ComuneComponent,
     RistorantiComponent,
-    SpiaggiaComponent
+    SpiaggiaComponent,
+    AboutComponent,
+    CondizioniComponent
   ],
   imports: [
     BrowserModule,

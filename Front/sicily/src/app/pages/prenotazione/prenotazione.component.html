@@ -1,64 +1,140 @@
-<p>prenotazione works!</p>
+<body>
 
-<div class="card-body">
-  <button (click)="prenota()" [routerLink]="['/comuni']">Crea Prenotazione </button>
+  <header>
+    <nav>
 
-  <h5 class="card-title mb-0">crea prenotazione</h5>
-</div>
+         <div>
+       <img src="assets/bild/sicily.png" alt="Sicily" height="50px">
+
+    <ul class="d-flex justify-content-around">
+      <li class="nav-item" [routerLink]="['/condizioni']">Condizioni</li>
+      <li class="nav-item" [routerLink]="['/about']">About</li>
+    </ul>
+   </div>
+
+  </nav>
+  </header>
+
+ <h2>Palermo</h2>
+ <p>Palermo, prima città fenicia, greca, romana e bizantina, poi capitale araba, in seguito conquistata da
+  Normanni e Svevi, è un luogo nel quale convivono la preziosità arabesca e normanna, il gusto barocco e
+  liberty dei monumenti, palazzi e teatri, ma anche dei giardini e dei mercati.
+  L’influenza del passato multietnico di Palermo è visibile nella Cattedrale, maestoso edificio iniziato nel
+  XII secolo e più volte rimaneggiato, arricchito da una cupola settecentesca ed un campanile medievale.
+  Nelle vicinanze sorge il Palazzo dei Normanni, in origine edificio arabo, da sempre sede del potere:
+  contiene la Cappella Palatina, ricca di mosaici di influenza bizantina che, insieme a quelli della Chiesa
+  di Santa Maria dell’Ammiraglio (o Martorana), rappresentano dei veri e propri capolavori d’arte.</p>
+  <h2>Catania</h2>
+  <p>Catania, fondata nel 729 a.C. dai Calcidesi, vanta una storia millenaria caratterizzata da svariate
+    dominazioni i cui resti ne arricchiscono il patrimonio artistico, architettonico e culturale. Sotto la
+    dinastia aragonese fu capitale del Regno di Sicilia. Nel corso della sua storia è stata più volte
+    interessata da eruzioni vulcaniche (la più imponente, in epoca storica, è quella del 1669) e da
+    terremoti (i più catastrofici ricordati sono stati quelli del 1169 e del 1693). Nel 2002 il Barocco del
+    suo centro storico  dall’UNESCO è stato dichiarato patrimonio dell’umanità. Di particolare interesse sono
+    la Cattedrale di Sant’Agata, dove sono custodite le reliquie della Santa Martire catanese, la Chiesa di
+    Sant’Agata alla Badia, la Chiesa della Collegiata e gli edifici monumentali di Via Etnea. </p>
+  <h2>Agrigento</h2>
+  <p>Fondata nel 581 a.C. dai Geloi, Akragas (Agrigento) crebbe presto d’importanza e sotto il tiranno Terone
+   estese il suo dominio fino alle coste settentrionali della Sicilia. Presso Imera nel 480 a.C., alleata di
+   Siracusa, ottenne una memorabile vittoria sui Cartaginesi. Il V secolo a.C. segnò l’apogeo della ricchezza
+   e della potenza di Akragas che si ornò allora di grandiosi templi: al Tempio di Ercole, costruito verso la
+   fine del VI secolo a.C., si aggiunsero il Tempio della Concordia, il Tempio di Giunone, il colossale Tempio
+   di Giove Olimpico ed altri. Nel 406 a.C. venne distrutta dai Cartaginesi. Ricostruita nel 338 a.C. da
+   Timoleonte di Corinto, dopo alterne vicende, nel 210 a.C. venne occupata dai Romani. Durante la dominazione
+   romana la città godette fino al III secolo d.C. di un relativo benessere. Il dominio bizantino segnò la
+   decadenza della città. Nell’828 iniziò la dominazione araba, seguita da quella normanna nel 1087 che ne
+   favorì la rinascita. Tra Dicembre e Febbraio i mandorli in fiore conferiscono alla Valle dei Templi un fascino
+   che la rende di una bellezza unica al mondo. La prima domenica di Febbraio si celebra la Sagra del Mandorlo in
+   fiore. </p>
 
 
-<div class="co
-ntainer-fluid">
+<div class="col-12 text-center"><h2>Lista Prenotazioni non pagate</h2></div>
+<div class="container-fluid">
   <div class="row">
 
-    <div class="col-12 p-3" *ngFor="let prenotazione of prenotazioni">
-      <!-- (click)="getIdP(prenotazione.idPrenotazione)" -->
-      <div class="card" *ngIf="getIdUser()==prenotazione.utente" >
-      <h2>Prenotazioni effettuate dal cliente</h2>
 
-      <div class="col-12 p-3">
-        <div class="card border-danger">
-          <div class="card-body">
-            <!-- <button *ngIf="prenotazione.pagata==false" (click)="setP(prenotazione)"> Termina Prenotazione</button> -->
-            <button (click)="prenotPag(prenotazione.idPrenotazione)">Termina Transazione e mostra il Prezzo</button>
-            <h5 class="card-title mb-0">LOG OUT</h5>
-          </div>
-        </div>
+    <div class="col-md-6 col-lg-4 p-3" *ngFor="let prenotazione of prenotNonPagate" >
+      <!-- <div class="card" *ngIf="getIdUser()==prenotazione.utente" > -->
+      <div class="card " >
+      <h5 class="p-3">Prenotazioni cliente utente : {{prenotazione.utente}}</h5>
+      <div class="card-body">
+        <h5 class="card-title p-3 mb-0">Id Prenotazione: {{prenotazione.idPrenotazione}}</h5>
+        <h5 class="card-title p-3 mb-0">Le città prenotate sono: </h5>
+         <div *ngFor="let viaggio of prenotazione.viaggi">
+          <h5 class="card-title mb-0"> {{viaggio.nome}} :  {{viaggio.prezzoHotel}}€</h5>
+         </div>
+        <h5 class="card-title p-3 mb-0">Le spiaggie prenotate sono: </h5>
+        <div *ngFor="let spiaggia of prenotazione.spiaggia">
+          <h5 class="card-title mb-0"> {{spiaggia.nome}} :  {{spiaggia.prezzoOmbrellne}}€</h5>
+         </div>
+        <h5 class="card-title p-3 mb-0">I ristoranti prenotati sono: </h5>
+         <div *ngFor="let rist of prenotazione.ristorante">
+          <h5 class="card-title mb-0"> {{rist.nome}} :  {{rist.prezzoPersona}}€</h5>
+         </div>
+        <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5>
+        <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot}}€</h5>
       </div>
 
-      <div class="col-12 p-3">
-        <div class="card border-danger">
-          <div class="card-body">
-            <button (click)="deleteP(prenotazione.idPrenotazione)">Elimina Prenotazione  </button>
-            <h5 class="card-title mb-0">LOG OUT</h5>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title mb-0">{{prenotazione.idPrenotazione}}</h5>
-          <h5 class="card-title mb-0">Prenotazione è:{{prenotazione.pagata}}</h5>
-          <h5 class="card-title mb-0">Prenotazione è:{{prenotazione.prezzoTot}}</h5>
-        </div>
-      </div>
-      </div>
+    <div>
+      <button class="btn btn-success p-3 m-4"(click)="prenotPag(prenotazione.idPrenotazione)">Termina Transazione </button>
     </div>
-
-
-    <div class="col-12 p-3">
-      <div class="card border-danger">
-        <div class="card-body">
-          <button (click)="esci()" >SLOGGAMI </button>
-          <h5 class="card-title mb-0">LOG OUT</h5>
-        </div>
-      </div>
+    <div>
+      <button class="btn btn-danger p-3 m-4"(click)="deleteP(prenotazione.idPrenotazione)">Elimina Prenotazione  </button>
     </div>
-
-
-
-
 
   </div>
+      <!-- fine card -->
+    </div>
+  </div>
 </div>
+
+<div class="col-12 text-center"><h2>Lista Prenotazioni pagate</h2></div>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-6 col-lg-4 p-3" *ngFor="let prenotazione of prenotPagate" >
+      <!-- <div class="card" *ngIf="getIdUser()==prenotazione.utente" > -->
+      <div class="card " >
+      <h5 class="p-3">Prenotazioni cliente utente : {{prenotazione.utente}}</h5>
+      <div class="card-body">
+        <h5 class="card-title p-3 mb-0">Id Prenotazione: {{prenotazione.idPrenotazione}}</h5>
+        <h5 class="card-title p-3 mb-0">Le città prenotate sono: </h5>
+         <div *ngFor="let viaggio of prenotazione.viaggi">
+          <h5 class="card-title mb-0"> {{viaggio.nome}} :  {{viaggio.prezzoHotel}}€</h5>
+         </div>
+        <h5 class="card-title p-3 mb-0">Le spiaggie prenotate sono: </h5>
+        <div *ngFor="let spiaggia of prenotazione.spiaggia">
+          <h5 class="card-title mb-0"> {{spiaggia.nome}} :  {{spiaggia.prezzoOmbrellne}}€</h5>
+         </div>
+        <h5 class="card-title p-3 mb-0">I ristoranti prenotati sono: </h5>
+         <div *ngFor="let rist of prenotazione.ristorante">
+          <h5 class="card-title mb-0"> {{rist.nome}} :  {{rist.prezzoPersona}}€</h5>
+         </div>
+        <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5>
+        <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot}}€</h5>
+      </div>
+
+    <!-- <div>
+      <button class="btn btn-success p-3 m-4"(click)="prenotPag(prenotazione.idPrenotazione)">Termina Transazione e mostra il Prezzo</button>
+    </div>
+    <div>
+      <button class="btn btn-danger p-3 m-4"(click)="deleteP(prenotazione.idPrenotazione)">Elimina Prenotazione  </button>
+    </div> -->
+
+  </div>
+      <!-- fine card -->
+    </div>
+  </div>
+</div>
+
+
+<div class="button-pos">
+<div>
+   <button class="btn btn-success p-3" (click)="prenota()" [routerLink]="['/comuni']">Crea Prenotazione </button>
+</div>
+<div>
+   <button class="btn btn-danger p-3" (click)="esci()" >LOG OUT </button>
+</div>
+</div>
+
+</body>

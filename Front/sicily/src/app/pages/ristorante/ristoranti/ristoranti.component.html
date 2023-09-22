@@ -1,32 +1,23 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <svg [routerLink]="['/prenotazione']" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
-      </svg>
-    </div>
-    <div class="col-12 text-center"><h2>GESTIONE Ristorante{{ ristorante.idRistorante }}</h2></div>
-    <div class="col-12 p-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Nome città : {{ ristorante.nome }}</h5>
-          <h5 class="card-subtitle mb-2 text-body-secondary">
-            Indirizzo :  {{ ristorante.indirizzo }}
-          </h5>
 
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            Tipo di cucina : <b>{{ristorante.tipoCucina }}</b>
-          </h6>
-          <h6>Prenota ristorante : {{ristorante.prenotaRist }}</h6>
+<body>
+  <div class="container-fluid">
+    <div class="row">
 
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            Prezzo a persona {{ ristorante.prezzoPersona }}
-          </h6>
-
-          <button [routerLink]="['/ristorante']">Ritorna Indietro</button>
+      <div class="col-12 text-center"><h2>Dettagli Ristorante{{ ristorante.idRistorante }}</h2></div>
+      <div class="col-12 ristorante p-3">
+        <div class="card">
+          <div class="card-body">
+            <img  class="img-fluid" [src]="ristorante.urlFotoCucina" alt="foto">
+            <h5 class="card-title p-2 mb-2"> Ristorante : {{ ristorante.nome }}</h5>
+            <h5 class="card-subtitle p-2 mb-2 "> Indirizzo :  {{ ristorante.indirizzo }}</h5>
+            <h5 class="card-subtitle p-2 mb-2 "> Tipo di cucina : {{ristorante.tipoCucina }}</h5>
+            <h5 class="card-subtitle p-2 mb-2 "> Prenota ristorante : {{ristorante.prenotaRist }}</h5>
+            <h5 class="card-subtitle p-2 mb-2 "> Prezzo a persona {{ ristorante.prezzoPersona }}</h5>
+            <button class="btn btn-danger shadow p-2" [routerLink]="['/ristorante']">Ritorna Indietro</button>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</div>
+  </body>

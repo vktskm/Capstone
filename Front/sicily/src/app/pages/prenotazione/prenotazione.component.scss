@@ -1,0 +1,76 @@
+body{
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin:0;
+
+  header {
+    background: #7a1622;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    color:white;
+    box-shadow: 0 3px 3px #444;
+    margin-bottom: 1.0em;
+    padding: 1em 1.0em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  header nav ul{
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  header nav li {
+    list-style: none;
+    padding:20px;
+  }
+
+  @media screen and (max-width: 990px) {
+
+    header nav {
+       display:flex;
+       justify-content: center;
+
+    }
+
+    header nav ul{
+      flex-direction: column;
+      padding-left: 0px;
+
+    }
+
+  }
+
+  h2{
+
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #7a1622;
+    margin-bottom: 0;
+  }
+
+  p {
+     padding :40px;
+     text-align: justify;
+  }
+
+  .button-pos{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .card{
+     background-color: #7a1622;
+     color:white;
+     text-align: center;
+     border-radius: 25px;
+  }
+
+}
