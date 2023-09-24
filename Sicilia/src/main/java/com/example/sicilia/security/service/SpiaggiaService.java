@@ -88,22 +88,22 @@ public class SpiaggiaService {
 	public void loadSpiaggia() {
 		 
 		addSpiaggia("Rocca", 1251.35,
-				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg", 
+				"https://www.siciliafan.it/wp-content/uploads/sites/3/2021/05/Rocca-San-Nicola-Licata-per-FB-Foto-di-Umberto-Pagnotta.jpg", 
 				LocalDate.of(2024, 8, 18),23.99);
 		addSpiaggia("Mollarella", 2251.35,
-				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg",
+				"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/85/07/45/dsc-0119-largejpg.jpg?w=1200&h=1200&s=1",
 				LocalDate.of(2024, 7, 18), 35.99);
 		addSpiaggia("Mondello", 4251.35,
-				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg",
+				"https://www.balarm.it/cache/b/2/2/2/5/b222501990f15b06554384e3d9bbe58917908efd-mondello-jpg-17969-1561372139.jpeg",
 				LocalDate.of(2024, 5, 18), 45.99);
 		addSpiaggia("Isola delle Femmine", 2867.35, 
-				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg" ,
+				"https://media-cdn.tripadvisor.com/media/photo-s/06/16/dc/91/palermo-easy-tour-day.jpg" ,
 				LocalDate.of(2024, 7, 16),31.99);
-		addSpiaggia("Capaci", 3251.35, 
-				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg" ,
-				LocalDate.of(2024, 6, 18), 20.49);
+		addSpiaggia("Scala dei Turchi", 2251.35, 
+				"https://images.placesonline.com/photos/424011708171212_Realmonte_268282553.jpg?quality=80&w=700" ,
+				LocalDate.of(2024, 6, 18), 60.49);
 		addSpiaggia("Macari", 2050.35, 
-				"https://cdn.pixabay.com/photo/2022/09/27/06/08/sea-7482169_1280.jpg" ,
+				"https://www.sanvitoweb.com/images/castelluzzo/castelluzzo-macari%20(3).jpg" ,
 				LocalDate.of(2024, 7, 18), 32.49);
 	}
 	

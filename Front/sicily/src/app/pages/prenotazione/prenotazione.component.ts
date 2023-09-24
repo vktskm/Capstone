@@ -15,7 +15,7 @@ export class PrenotazioneComponent implements OnInit{
     constructor(private autSvc: AuthService , private prSvc: PrenotazioneService , private userSvc: UserService, private router:Router){}
 
     prenotazioni: Iprenota[] = [];
-    prenotPagate: Iprenota[] = [];
+    prenotPagate: Iprenota[]= [];
     prenotNonPagate: Iprenota[] = [];
 
     error: undefined | string;
@@ -25,7 +25,10 @@ export class PrenotazioneComponent implements OnInit{
     }
 
     esci (): void {
+      this.prenotazioni =[];
+      //questa istruzioni mi porta le card all'inizio con un user diverso
       this.autSvc.logout();
+
     }
 
     getAll() : void {

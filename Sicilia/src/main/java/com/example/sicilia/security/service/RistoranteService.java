@@ -96,19 +96,25 @@ public class RistoranteService {
     
 	public void loadRistorante() {
 		 
-		addRistorante("Madia","Corso Roma","Stellata" ,
-				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
-				LocalDate.of(2024, 8, 18),230.49);
+		addRistorante("Madia","Corso Filippo Re Capriata, 22,Licata","Ristorante stellato" ,
+				"https://images.dissapore.com/wp-content/uploads/2016/07/La-Madia-Pino-Cuttaia.jpg", 
+				LocalDate.of(2023, 11, 18),230.49);
+		addRistorante("Corallo" , "Arenile, 97015 Marina di Modica","Ristorante di pesce" ,
+				"https://media-cdn.tripadvisor.com/media/photo-s/1b/06/02/21/corallo-food-beach.jpg", 
+				LocalDate.of(2024, 1, 18),80.49);
+		addRistorante("Duomo","Via Capitano Bocchieri, 31, 97100 Ragusa","Ristorante Stellato" ,
+				"https://images.dissapore.com/wp-content/uploads/2018/03/SULTANO-3270617-800x600.jpg", 
+				LocalDate.of(2024, 3, 18),280.49);
 		
-		addRistorante("Logico","Cofddso Roma","Stellata" ,
-				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
-				LocalDate.of(2024, 8, 18),230.49);
-		addRistorante("Sferaccavallo","Cofddso Roma","Stellata" ,
-				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
-				LocalDate.of(2024, 8, 18),230.49);
-		addRistorante("ffttyt","Cofddso Roma","Stellata" ,
-				"https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_1280.jpg", 
-				LocalDate.of(2024, 8, 18),230.49);	
+		addRistorante("Otto Geleng","Via Teatro Greco, 59, 98039 Taormina ME","Ristorante stellato" ,
+				"https://media-cdn.tripadvisor.com/media/photo-s/19/84/c8/25/the-ambience.jpg", 
+				LocalDate.of(2024, 4, 12),130.49);
+		addRistorante("Brigantino","Via Torretta, 104, 90147 Palermo ","Ristorante pesce" ,
+				"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e9/08/83/la-terrazza.jpg?w=800&h=600&s=1", 
+				LocalDate.of(2024, 5, 1),60.49);
+		addRistorante("I pupi","Via del Cavaliere, 59, 90011 Bagheria","Ristorante stellato" ,
+				"https://siciliadagustare.com/wp-content/uploads/2021/05/Ristorante-i-Pupi-di-Bagheria-interno-esterno-2.png", 
+				LocalDate.of(2023, 12, 31),130.49);	
 				
 	}
 	
