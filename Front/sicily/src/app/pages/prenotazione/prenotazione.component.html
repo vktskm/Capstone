@@ -53,7 +53,7 @@
   <div class="row">
 
     <div class="col-md-6 col-lg-4 p-3" *ngFor="let prenotazione of prenotNonPagate"  >
-      <div *ngIf="getIdUser()==prenotazione.utente" >
+      <!-- <div *ngIf="getIdUser()==prenotazione.utente" > -->
 
       <div class="card " >
       <h5 class="p-3">Prenotazioni cliente utente : {{prenotazione.utente}}</h5>
@@ -72,7 +72,7 @@
           <h5 class="card-title mb-0"> {{rist.nome}} :  {{rist.prezzoPersona}}€</h5>
          </div>
         <!-- <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5> -->
-        <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot}}€</h5>
+        <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot | number:'1.2-2' }}€</h5>
       </div>
 
     <div>
@@ -85,7 +85,7 @@
   </div>
       <!-- fine card -->
 
-  </div>
+  <!-- </div> -->
   <!-- fine ngIF -->
 
     </div>
@@ -115,9 +115,9 @@
           <h5 class="card-title mb-0"> {{rist.nome}} :  {{rist.prezzoPersona}}€</h5>
          </div>
         <!-- <h5 class="card-title p-3 mb-0">La prenotazione è pagata:{{prenotazione.pagata}}</h5> -->
-        <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot}}€</h5>
+        <h5 class="card-title p-3 mb-0">Il prezzo totale è:{{prenotazione.prezzoTot | number:'1.2-2'}}€</h5>
       </div>
-
+      <!-- | number:'1.2-2' -->
     <!-- <div>
       <button class="btn btn-success p-3 m-4"(click)="prenotPag(prenotazione.idPrenotazione)">Termina Transazione e mostra il Prezzo</button>
     </div>
@@ -139,6 +139,9 @@
 <div>
    <button class="btn btn-danger p-3" (click)="esci()" >LOG OUT </button>
 </div>
+   <a>
+
+   </a>
 </div>
 
 </body>

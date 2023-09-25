@@ -16,7 +16,7 @@ export class PrenotazioneComponent implements OnInit{
 
     prenotazioni: Iprenota[] = [];
     prenotPagate: Iprenota[]= [];
-    prenotNonPagate: Iprenota[] = [];
+    prenotNonPagate: Iprenota[]= [];
 
     error: undefined | string;
 
@@ -25,8 +25,12 @@ export class PrenotazioneComponent implements OnInit{
     }
 
     esci (): void {
-      this.prenotazioni =[];
-      //questa istruzioni mi porta le card all'inizio con un user diverso
+      // for (let i = 0; i < this.prenotazioni.length; i++)
+      //  {
+      //    console.log(this.prenotazioni[i]);
+      //    this.deleteP(this.prenotazioni?.[i].idPrenotazione);
+      //  }
+      //questa istruzioni mi distrugge tutte le prenotazioni
       this.autSvc.logout();
 
     }
@@ -47,18 +51,24 @@ export class PrenotazioneComponent implements OnInit{
       this.prenotNonPagate = [];
       for (let i = 0; i < this.prenotazioni.length; i++)
          {
-             if (this.prenotazioni[i].pagata == true && this.prenotazioni[i].utente == this.userSvc.getId())
-                {
-                  this.prenotPagate.push(this.prenotazioni[i]);
-                }
-             else{
-                 this.prenotNonPagate.push(this.prenotazioni[i]);
-             }
 
-         }
+            if (this.prenotazioni[i].pagata == false && this.prenotazioni[i].utente == this.userSvc.getId())
+                {
+                  this.prenotNonPagate.push(this.prenotazioni[i]);
+
+                }
+             else if (this.prenotazioni[i].pagata == true && this.prenotazioni[i].utente == this.userSvc.getId())
+             {
+                 this.prenotPagate.push(this.prenotazioni[i]);
+
+             }
+         console.log("================Pagate================");
+         console.log(this.prenotPagate);
+         console.log("================NON Pagate================");
+         console.log(this.prenotNonPagate);
     }
 
-
+  }
 
     getIdP(id:any) {
         this.prSvc.getByIdP(id).subscribe((data) => {
